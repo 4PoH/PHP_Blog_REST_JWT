@@ -1,0 +1,737 @@
+{
+	"info": {
+		"_postman_id": "3c068f19-ce18-4df2-994a-ed1892c763ac",
+		"name": "Projet PHP API REST JWT (Nino Rigal - Raphael Durand)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25747690"
+	},
+	"item": [
+		{
+			"name": "TEST_JWT",
+			"item": [
+				{
+					"name": "POST_JWT_Moderator",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"username\" : \"AliceModerator\",\r\n   \"password\" : \"password1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_JWT.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_JWT.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST_JWT_Publisher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"username\" : \"BobPublisher\",\r\n   \"password\" : \"password2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_JWT.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_JWT.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_JWT",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFJvbGUiOiIxIiwibm9tIjoiQWxpY2VNb2RlcmF0b3IiLCJleHAiOjE2ODE1MDUxNzd9.YNRJXSWps-SC426uOnvFz-atuU6P6MFnjz_xfdeRzqw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_JWT.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_JWT.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TestNoAuthentification",
+			"item": [
+				{
+					"name": "GET_ARTICLE_BY_ID_no_authentification",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_ALL_ARTICLE_no_authentification",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST_ARTICLE_no_authentification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contenu\":\"Insertion d'un article de lucas le publisher\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT_ARTICLE_no_authentification",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contenu\" : \"Un nouveau contenu modification\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php?id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE_ARTICLE_no_authentification",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php?id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TestModerator",
+			"item": [
+				{
+					"name": "GET_ALL_ARTICLE_moderator",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFJvbGUiOiIxIiwibm9tIjoiQWxpY2VNb2RlcmF0b3IiLCJleHAiOjE2ODE1MDUxNzd9.YNRJXSWps-SC426uOnvFz-atuU6P6MFnjz_xfdeRzqw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_ARTICLE_BY_ID_Moderator",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFJvbGUiOiIxIiwibm9tIjoiQWxpY2VNb2RlcmF0b3IiLCJleHAiOjE2ODE1MDUxNzd9.YNRJXSWps-SC426uOnvFz-atuU6P6MFnjz_xfdeRzqw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE_ARTICLE_moderator",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFJvbGUiOiIxIiwibm9tIjoiQWxpY2VNb2RlcmF0b3IiLCJleHAiOjE2ODE1MDUxNzd9.YNRJXSWps-SC426uOnvFz-atuU6P6MFnjz_xfdeRzqw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php?id=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST_ARTICLE_Moderator",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFJvbGUiOiIxIiwibm9tIjoiQWxpY2VNb2RlcmF0b3IiLCJleHAiOjE2ODE1MDUxNzd9.YNRJXSWps-SC426uOnvFz-atuU6P6MFnjz_xfdeRzqw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contenu\":\"Insertion d'un article de lucas le publisher\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT_ARTICLE_Moderator",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFJvbGUiOiIxIiwibm9tIjoiQWxpY2VNb2RlcmF0b3IiLCJleHAiOjE2ODE1MDUxNzd9.YNRJXSWps-SC426uOnvFz-atuU6P6MFnjz_xfdeRzqw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contenu\" : \"Un nouveau contenu modification\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php?id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TestPublisher",
+			"item": [
+				{
+					"name": "GET_ALL_ARTICLE_publisher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFJvbGUiOiIyIiwibm9tIjoiQm9iUHVibGlzaGVyIiwiZXhwIjoxNjgxNTA1MDk4fQ.euFDQoQPkg60FLloc8LxojgI6qZG_O8xNFST6hjI-so",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_ARTICLE_BY_ID_Publisher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFJvbGUiOiIyIiwibm9tIjoiQm9iUHVibGlzaGVyIiwiZXhwIjoxNjgxNTA1MDk4fQ.euFDQoQPkg60FLloc8LxojgI6qZG_O8xNFST6hjI-so",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE_ARTICLE_Publisher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFJvbGUiOiIyIiwibm9tIjoiQm9iUHVibGlzaGVyIiwiZXhwIjoxNjgxNTA1MDk4fQ.euFDQoQPkg60FLloc8LxojgI6qZG_O8xNFST6hjI-so",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE_ARTICLE_Other_Publisher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFJvbGUiOiIyIiwibm9tIjoiQm9iUHVibGlzaGVyIiwiZXhwIjoxNjgxNTA1MDk4fQ.euFDQoQPkg60FLloc8LxojgI6qZG_O8xNFST6hjI-so",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST_ARTICLE_Publisher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFJvbGUiOiIyIiwibm9tIjoiQm9iUHVibGlzaGVyIiwiZXhwIjoxNjgxNTA1MDk4fQ.euFDQoQPkg60FLloc8LxojgI6qZG_O8xNFST6hjI-so",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contenu\":\"Article a supprimer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT_ARTICLE_Publisher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFJvbGUiOiIyIiwibm9tIjoiQm9iUHVibGlzaGVyIiwiZXhwIjoxNjgxNTA1MDk4fQ.euFDQoQPkg60FLloc8LxojgI6qZG_O8xNFST6hjI-so",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contenu\" : \"Un nouveau contenu modification test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php?id=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT_ARTICLE_Other_Publisher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFJvbGUiOiIyIiwibm9tIjoiQm9iUHVibGlzaGVyIiwiZXhwIjoxNjgxNTA1MDk4fQ.euFDQoQPkg60FLloc8LxojgI6qZG_O8xNFST6hjI-so",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contenu\" : \"Un nouveau contenu modification\",\r\n    \"vote\" : \"True\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/R4.01-Architecture_Logicielle/TP3/API_REST.php?id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"R4.01-Architecture_Logicielle",
+								"TP3",
+								"API_REST.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
