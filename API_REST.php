@@ -12,8 +12,8 @@
 
 
     /// Librairies éventuelles (pour la connexion à la BDD, etc.)
-    include('../connBDD.php');
-    include('../jwt_utils.php');
+    include('..\TP3\jwt_utils.php');
+    include('..\TP3\connBDD.php');
 
     /// Paramétrage de l'entête HTTP (pour la réponse au Client)
     header("Content-Type:application/json");
@@ -34,6 +34,7 @@
 
     //Requete poru le case PUT
     $requetePutArt = $linkpdo-> prepare("UPDATE article SET article.contenu = :p_newcontenu WHERE article.idArticle = :p_idArticle");
+    $requetePutVote = $linkpdo-> prepare("INSERT INTO evalue('idArticle', 'nom', 'pouceBleu') VALUES (:p_idArticle, :p_nom, :p_vote)");
 
     //Requete poru le case DELETE
     $requeteDeleteArt = $linkpdo-> prepare(" DELETE FROM article WHERE article.idArticle = :p_idArticle ");
@@ -234,7 +235,9 @@
                 $data = json_decode($postedData);
                 if(!is_null($data)) {
 
-                    $contenu = $data -> contenu;
+                    if (property_exists($data, 'contenu')) {
+                        $contenu = $data->contenu;
+                    }
                     $Auteur = $nom;
 
                     $linkpdo->beginTransaction();
@@ -293,7 +296,20 @@
 
                     // Si c'est un vote
                     if(!empty($vote)){
-                        echo 'here';
+                        if($requetePutVote== false) {
+                            die('Erreur préparation requête');
+                        }
+                        
+                        
+                        $requetePutVote->bindParam(':p_idArticle', $id);
+                        $requetePutVote->bindParam(':p_nom', $nom);
+                        $requetePutVote->bindParam(':p_vote', $vote);
+                        
+                        $resExec = $requetePutVote->execute();
+    
+                        if(!$resExec){
+                            die('Erreur exécution requête ici');
+                        }
                     } else if(!empty($contenu)){
                         if($requeteNomAuteur == false) {
                             die('Erreur préparation requête');

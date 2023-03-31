@@ -12,8 +12,8 @@
 
 
     /// Librairies éventuelles (pour la connexion à la BDD, etc.)
-    require('../jwt_utils.php');
-    include('../connBDD.php');
+    require('..\TP3\jwt_utils.php');
+    include('..\TP3\connBDD.php');
 
     ///Préparation de la requête sans les variables (marqueurs : nominatifs)
    
